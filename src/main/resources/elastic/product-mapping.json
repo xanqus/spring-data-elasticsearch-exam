@@ -1,0 +1,36 @@
+{
+  "properties" : {
+    "id" : {"type" : "keyword"},
+    "reg_date" : {
+      "type" : "date",
+      "format": "uuuu-MM-dd'T'HH:mm:ss.SSS||epoch_millis"
+    },
+    "update_date" : {
+      "type" : "date",
+      "format": "uuuu-MM-dd'T'HH:mm:ss.SSS||epoch_millis"
+    },
+    "id_deleted" : {"type" : "boolean"},
+    "delete_date" : {"type" : "date"},
+    "name" : {
+      "type" : "text",
+      "analyzer" : "korean"
+    },
+    "displayName" : {
+      "type" : "text",
+      "analyzer" : "korean"
+    },
+    "description": {
+      "type" : "text",
+      "analyzer" : "korean"
+    },
+    "price": {"type" : "numbers"},
+    "sale_price": {"type" : "numbers"},
+    "is_hidden" : {"type" : "boolean"},
+    "is_sold_out" : {"type" : "boolean"},
+    "hit_count" : {"type" : "numbers"},
+    "review_count" : {"type" : "numbers"},
+    "review_point" : {"type" : "numbers"},
+    "cate_item_id" : {"type" : "numbers"},
+    "market_id" : {"type" : "numbers"}
+  }
+}
