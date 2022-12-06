@@ -15,7 +15,26 @@ public interface ProductSearchRepository extends ElasticsearchRepository<Product
 
     List<ProductDocument> findByDescriptionAndDisplayName(String description, String displayName);
 
-    @Query("{\"match\": [{\"name_nori\": {\"query\": \"?0\"}, {\"display_name_nori\": {\"query\": \"?1\"}, {\"description_nori\": {\"query\": \"?2\"}}]}")
+    @Query(" {\n" +
+            "\n" +
+            "    \"bool\": {\n" +
+            "\n" +
+            "      \"must\": {\n" +
+            "\n" +
+            "        \"dis_max\": {\n" +
+            "\n" +
+            "          \"queries\": [{ \"match\": { \"name_nori\": \"?0\" }},\n" +
+            "        { \"match\": { \"display_name_nori\": \"?1\" }},\n" +
+            "        { \"match\": { \"description_nori\": \"?2\" }}],\n" +
+            "        \"tie_breaker\": 0.7\n" +
+            "\n" +
+            "          }\n" +
+            "\n" +
+            "      }\n" +
+            "\n" +
+            "    }\n" +
+            "\n" +
+            "  }")
     List<ProductDocument> findByNameOrDisplayNameOrDescription(String name, String displayName, String description);
 
 

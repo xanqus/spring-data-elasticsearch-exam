@@ -26,8 +26,8 @@ public class ProductController {
     @GetMapping("/condition")
     public List<ProductDocument> getProductsByDescription(@RequestParam("name") String name, @RequestParam("displayName") String displayName, @RequestParam("description") String description) {
 
-        //return productSearchRepository.findByNameOrDisplayNameOrDescription(name, displayName, description);
-        return productSearchRepository.findByNameContainsOrDisplayNameContainsOrDescriptionContains(name, displayName, description);
+        return productSearchRepository.findByNameOrDisplayNameOrDescription(name, displayName, description);
+        //return productSearchRepository.findByNameContainsOrDisplayNameContainsOrDescriptionContains(name, displayName, description);
 
     }
 }
